@@ -16,7 +16,7 @@ TIME_LIMIT_MILLIS = 150
 
 class Board(object):
     """Implement a model for the game Isolation assuming each player moves like
-    a knight in chess.
+    a queen in chess.
 
     Parameters
     ----------
@@ -323,6 +323,7 @@ class Board(object):
 
             move_start = time_millis()
             time_left = lambda : time_limit - (time_millis() - move_start)
+
             curr_move = self._active_player.get_move(game_copy, time_left)
             move_end = time_left()
 
