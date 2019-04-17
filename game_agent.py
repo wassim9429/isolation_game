@@ -194,7 +194,7 @@ class AlphaBetaPlayer(IsolationPlayer):
                 # update score
                 score = max(score, new_score)
                 # beta stopping criteria
-                if score >= beta:
+                if score > beta:
                     return score
                 # update alpha
                 alpha = max(alpha, score)
@@ -219,7 +219,7 @@ class AlphaBetaPlayer(IsolationPlayer):
                 # update score
                 score = min(score, new_score)
                 # alpha stopping criteria
-                if score <= alpha:
+                if score < alpha:
                     return score
                 # update beta
                 beta = min(beta, score)
@@ -240,11 +240,11 @@ class AlphaBetaPlayer(IsolationPlayer):
             # alternate recursive calling
             new_score = level_min_value_alpha_beta(game_subbranch, depth-1, alpha, beta)
             # update score and best move
-            if new_score >= score:
+            if new_score > score:
                 score = new_score
                 best_move = move
             # beta stopping criteria
-            if new_score >= beta:
+            if new_score > beta:
                 return best_move
             # update alpha
             alpha = max(alpha, new_score)
